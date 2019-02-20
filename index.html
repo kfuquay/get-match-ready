@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Get Match Ready | Pick your favourite EFL Championship team to get news, stats and more">
+    <title>Are You Match Ready?</title>
+    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <main class="container">
+
+        <header role="banner" class="title">
+            <h1 class="home-title">Get Match Ready!</h1>
+        </header>
+
+        <section class="intro-container">
+            <p class="intro">Know before you go!</p>
+            <p class="intro">Bone up before you attend your next EFL Championship match.  Select a team to get relevant info.</p>
+        </section>
+
+        <section class="js-container" aria-live="polite">
+        </section>
+
+        <section>
+            <nav role="navigation" class="nav hidden">
+                <ul>
+                    <li><button type="button" class="sub-menu-button" id="news-button">Team News</button></li>
+                    <li><button type="button" class="sub-menu-button" id="stats-button">Team Stats</button></li>
+                    <li><button type="button" class="sub-menu-button" id="match-button">Next Match</button></li>
+                </ul>
+            </nav>
+        </section>
+
+        <form class="form">
+            <select class="select-team js-select-team" dir="rtl" required>
+                <option value="" selected="selected disabled">Select Team</option>
+            </select>
+            <input type="Submit" value="Submit" class="submit-button">
+        </form>
+
+    </main>
+    
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>

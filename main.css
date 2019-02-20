@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* INITIAL PAGE RENDERING */
+.hidden {
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    height: 0;
+}
+
+.title {
+    font-size: 60px;
+    font-weight: bold;
+    max-width: 50%;
+}
+
+.intro-container {
+    max-width: 75%;
+    margin: 50px auto;
+}
+
+.intro {
+    margin: 5px;
+    padding: 10px;
+}
+
+.select-team,
+.submit-button {
+    display: block;
+    margin: 20px auto;
+    border: 3px solid black;
+    box-shadow: 2px 2px 4px black;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px black;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.select-team {
+    white-space: pre-wrap;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: button;
+    max-width: 90vw;
+}
+
+/* ON SUBMIT - TEAM CREST/NAV */
+.crest {
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
+    margin: 50px auto;
+}
+
+.nav {
+    text-align: center;
+    padding: 5px;
+}
+
+.nav button {
+    text-transform: uppercase;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 5px;
+    background-color: #fff;
+}
