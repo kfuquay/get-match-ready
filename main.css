@@ -3,6 +3,13 @@
     font-family: sans-serif;
 }
 
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 /* INITIAL PAGE RENDERING */
 .hidden {
     margin: 0;
@@ -129,4 +136,55 @@
 .next-match span {
     font-size: 22px;
     font-weight: bold;
+}
+
+@media only screen and (min-device-width: 768px) {
+    .title {
+        font-size: 80px;
+        margin: 50px 0 0 50px;
+    }
+
+    .crest {
+        max-height: 250px;
+        max-width: 250px;
+    }
+
+    .form {
+        margin-top: 100px;
+    }
+}
+
+@media only screen and (min-device-width: 1000px) {
+    .title {
+        font-size: 100px;
+        max-width: 100%;
+        text-transform: uppercase;
+    }
+
+    .crest {
+        max-height: 500px;
+        max-width: 500px;
+    }
+
+    .js-container h2 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    #news-list,
+    #stats,
+    .next-match-container {
+        max-width: 65%;
+        margin: 50px auto;
+    }
+
+    .match-teams {
+        font-size: 70px;
+        margin: 20px;
+    }
+
+    .vs {
+        font-size: 36px;
+    }
+
 }
