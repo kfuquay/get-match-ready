@@ -10,6 +10,13 @@ const fdOptions = {
         "X-Auth-Token": fdApiKey})
 };
 
+// UTC DATE FORMATTER
+function dateFormatter(UTC) {
+    const dateFormat = 'YYYY-MM-DD / hh:mm a'
+
+    return (moment(UTC).format(dateFormat));
+}
+
 // DISPLAY THE THINGS!!!
 
 function displayNextMatch(responseJson) {
@@ -20,6 +27,9 @@ function displayNextMatch(responseJson) {
 
     $('.js-container').empty();
 
+    const kickoff = dateFormatter(nextMatch[0].utcDate);
+
+
     $('.js-container').append(`
         <section class="sub-header">
             <h1 class="match-teams">${nextMatch[0].homeTeam.name}</h1>
@@ -29,7 +39,7 @@ function displayNextMatch(responseJson) {
 
         <section class="next-match-container">
             <p class="next-match"><span>Matchday:</span> ${nextMatch[0].matchday}</p>
-            <p class="next-match"><span>Kickoff:</span> ${nextMatch[0].utcDate}</p>
+            <p class="next-match"><span>Kickoff:</span> ${kickoff}</p>
             <p class="next-match"><span>At:</span> ${nextMatch[0].homeTeam.name}</p>
         </section>
 
