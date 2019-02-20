@@ -29,6 +29,10 @@ function displayNextMatch(responseJson) {
 
     const kickoff = dateFormatter(nextMatch[0].utcDate);
 
+    const homeTeam = nextMatch[0].homeTeam.id;
+    console.log(homeTeam);
+
+    const venue = getVenue(homeTeam);
 
     $('.js-container').append(`
         <section class="sub-header">
@@ -40,12 +44,14 @@ function displayNextMatch(responseJson) {
         <section class="next-match-container">
             <p class="next-match"><span>Matchday:</span> ${nextMatch[0].matchday}</p>
             <p class="next-match"><span>Kickoff:</span> ${kickoff}</p>
-            <p class="next-match"><span>At:</span> ${nextMatch[0].homeTeam.name}</p>
         </section>
-
-
     `)
+}
 
+function displayNextMatchVenue(responseJson) {
+    $('.next-match-container').append(`
+        <p class="next-match"><span>At:</span> ${responseJson.venue}</p>
+    `)
 }
 
 function displayStats(responseJson, userTeam) {
@@ -124,7 +130,7 @@ function insertCurrentTeams(responseJson) {
     currentTeams.sort(function(a, b) {
         if(a.name < b.name) { return -1; }
         if(a.name > b.name) { return 1; }
-        // return 0;
+        return 0;
     });
 
     for(let i = 0; i < currentTeams.length; i++) {
@@ -136,6 +142,23 @@ function insertCurrentTeams(responseJson) {
 
 
 // API CALLS
+
+function getVenue(homeTeam) {
+    const URL = `https://api.football-data.org/v2/teams/${homeTeam}
+    `
+    fetch(URL, fdOptions)
+        .then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => displayNextMatchVenue(responseJson))
+        .catch(err => {
+            alert(`Something went wrong: ${err.message}`);
+        })
+}
+
 
 function requestNextMatch(userTeam) {
 
