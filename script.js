@@ -114,10 +114,23 @@ function displayTeam(responseJson) {
 }
 
 function insertCurrentTeams(responseJson) {
+
+    const currentTeams = [];
+
     for(let i = 0; i < responseJson.teams.length; i++) {
+        currentTeams.push({name: responseJson.teams[i].name, id: responseJson.teams[i].id});
+    }
+
+    currentTeams.sort(function(a, b) {
+        if(a.name < b.name) { return -1; }
+        if(a.name > b.name) { return 1; }
+        // return 0;
+    });
+
+    for(let i = 0; i < currentTeams.length; i++) {
         $('.select-team').append(`
-        <option value="${responseJson.teams[i].id}">${responseJson.teams[i].name}</option>
-        `)
+        <option value="${currentTeams[i].id}">${currentTeams[i].name}</option>
+        `);
     }
 }
 

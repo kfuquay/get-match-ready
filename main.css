@@ -26,7 +26,7 @@ body {
 
 .intro-container {
     max-width: 75%;
-    margin: 50px auto;
+    margin: 30px auto 50px auto;
 }
 
 .intro {
@@ -137,6 +137,8 @@ body {
     font-size: 22px;
     font-weight: bold;
 }
+
+/* MEDIA QUERIES */
 
 @media only screen and (min-device-width: 768px) {
     .title {
