@@ -12,6 +12,32 @@ const fdOptions = {
 
 // DISPLAY THE THINGS!!!
 
+function displayNextMatch(responseJson) {
+
+    const nextMatch = jQuery.grep(responseJson.matches, function(item) {
+        return(item.status === 'SCHEDULED');
+    });
+
+    $('.js-container').empty();
+
+    $('.js-container').append(`
+        <section class="sub-header">
+            <h1 class="match-teams">${nextMatch[0].homeTeam.name}</h1>
+            <h4 class="vs">VS.</h4>
+            <h1 class="match-teams">${nextMatch[0].awayTeam.name}</h1>
+        </section>
+
+        <section class="next-match-container">
+            <p class="next-match"><span>Matchday:</span> ${nextMatch[0].matchday}</p>
+            <p class="next-match"><span>Kickoff:</span> ${nextMatch[0].utcDate}</p>
+            <p class="next-match"><span>At:</span> ${nextMatch[0].homeTeam.name}</p>
+        </section>
+
+
+    `)
+
+}
+
 function displayStats(responseJson, userTeam) {
 
     $('.js-container').empty();
@@ -87,6 +113,23 @@ function insertCurrentTeams(responseJson) {
 
 
 // API CALLS
+
+function requestNextMatch(userTeam) {
+
+    const URL = `https://api.football-data.org/v2/teams/${userTeam}/matches`
+
+    fetch(URL, fdOptions)
+        .then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => displayNextMatch(responseJson))
+        .catch(err => {
+            alert(`Something went wrong: ${err.message}`);
+        })
+}
 
 function requestStats(userTeam) {
     
@@ -166,6 +209,12 @@ function getCurrentTeams() {
 
 
 // EVENT LISTENERS
+function watchNextButton() {
+    $('#match-button').on('click', function() {
+        const userTeam = $('.js-select-team').val();
+        requestNextMatch(userTeam);
+    })
+}
 
 function watchStatsButton() {
     $('#stats-button').on('click', function () {
@@ -192,7 +241,7 @@ function watchForm() {
 }
 
 
-
+$(watchNextButton);
 $(watchStatsButton);
 $(watchNewsButton);
 $(watchForm);
