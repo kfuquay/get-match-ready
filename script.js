@@ -30,9 +30,9 @@ function displayNextMatch(responseJson) {
     const kickoff = dateFormatter(nextMatch[0].utcDate);
 
     const homeTeam = nextMatch[0].homeTeam.id;
-    console.log(homeTeam);
 
     const venue = getVenue(homeTeam);
+    
 
     $('.js-container').append(`
         <section class="sub-header">
@@ -45,6 +45,7 @@ function displayNextMatch(responseJson) {
             <p class="next-match"><span>Matchday:</span> ${nextMatch[0].matchday}</p>
             <p class="next-match"><span>Kickoff:</span> ${kickoff}</p>
         </section>
+        <section id="map"></section>
     `)
 }
 
@@ -143,6 +144,22 @@ function insertCurrentTeams(responseJson) {
 
 // API CALLS
 
+function getMap(responseJson) {
+    console.log(responseJson);
+    const lat = responseJson[0].lat;
+    const long = responseJson[0].lon;
+    console.log(lat, long);
+    let map = L.map('map').setView([`${lat}`, `${long}`], 15);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1Ijoia2Z1cXVheSIsImEiOiJjanNkdW8zMDYwYnlrNDRtZndqOW5oenh1In0.WFjTNvlgwzKZGibDz7ABZg'
+}).addTo(map);
+    let marker = L.marker([`${lat}`, `${long}`]).addTo(map);
+
+}
+
 function getVenue(homeTeam) {
     const URL = `https://api.football-data.org/v2/teams/${homeTeam}
     `
@@ -153,12 +170,39 @@ function getVenue(homeTeam) {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => displayNextMatchVenue(responseJson))
+        .then(function(responseJson) {
+            displayNextMatchVenue(responseJson);
+            getVenueLocation(responseJson);
+        })
+        
         .catch(err => {
             alert(`Something went wrong: ${err.message}`);
         })
 }
 
+function getVenueLocation(responseJson) {
+    
+    const apikey = '7759afc20a6964';
+    const venue = responseJson.address;
+    const URL = `https://eu1.locationiq.com/v1/search.php?key=${apikey}&q=${venue}&format=json`
+
+    fetch(URL)
+    .then(response => {
+        if(response.ok) {
+            return response.json();
+        }
+        throw new Error(response.statusText);
+    })
+    .then(responseJson => getMap(responseJson))
+    .catch(err => {
+        alert(`Something went wrong: ${err.message}`);
+    })
+
+
+    // const venue = responseJson.address;
+    // const URL = `https://geocode.xyz/?locate=${venue}&json=1&auth=470546940471392631328x1840`;
+
+}
 
 function requestNextMatch(userTeam) {
 
@@ -281,7 +325,6 @@ function watchForm() {
     $('.form').submit(e => {
         e.preventDefault();
         const userTeam = $('.js-select-team').val();
-        console.log(userTeam);
         requestTeam(userTeam);
         })
 }
