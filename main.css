@@ -69,3 +69,33 @@
     margin: 5px;
     background-color: #fff;
 }
+
+/* JS-CONTAINER */
+.js-container h2 {
+    margin-left: 10px;
+    color: goldenrod;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+/* NEWS PAGE */
+#news-list {
+    margin: 50px 10px;
+}
+
+#news-list li {
+    margin: 20px;
+    padding: 20px;
+    max-width:80vw;
+    border-bottom: 1px solid goldenrod;
+}
+
+#news-list li > * {
+    margin: 10px;
+}
+
+#news-list a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}

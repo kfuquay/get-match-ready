@@ -10,29 +10,25 @@ const fdOptions = {
         "X-Auth-Token": fdApiKey})
 };
 
-//insert current teams into form 
-function insertCurrentTeams(responseJson) {
-    for(let i = 0; i < responseJson.teams.length; i++) {
-        $('.select-team').append(`
-        <option value="${responseJson.teams[i].id}">${responseJson.teams[i].name}</option>
+// DISPLAY THE THINGS!!!
+
+function displayNews(newsResponseJson) {
+
+    $('.js-container').empty();
+    $('.js-container').append(`
+            <h2>Recent News</h2>
+            <ul id="news-list">
+            </ul>
+        `)
+    for (let i=0; i < newsResponseJson.articles.length; i++) {
+        $('#news-list').append(`
+            <li>
+            <h3><a href="${newsResponseJson.articles[i].url}">${newsResponseJson.articles[i].title}</a></h3>
+            <p>${newsResponseJson.articles[i].source.name}</p>
+            <p>${newsResponseJson.articles[i].description}</p>
+            </li>
         `)
     }
-}
-
-function getCurrentTeams() {
-    const URL = 'https://api.football-data.org/v2/competitions/2016/teams'
-
-    fetch(URL, fdOptions)
-        .then(response => {
-            if(response.ok) {
-                return response.json();
-            }
-            throw new Error(response.statusText);
-        })
-        .then(responseJson => insertCurrentTeams(responseJson))
-        .catch(err => {
-            alert(`Something went wrong: ${err.message}`);
-        })
 }
 
 function displayTeam(responseJson) {
@@ -55,6 +51,43 @@ function displayTeam(responseJson) {
     $('.nav').removeClass('hidden');
 }
 
+function insertCurrentTeams(responseJson) {
+    for(let i = 0; i < responseJson.teams.length; i++) {
+        $('.select-team').append(`
+        <option value="${responseJson.teams[i].id}">${responseJson.teams[i].name}</option>
+        `)
+    }
+}
+
+
+// API CALLS
+
+function requestTeamNews(userTeamName) {
+
+    const newsapiKey = '80fc5c87ac064513a95dc5d37927c2dc';
+
+    const URL = `https://newsapi.org/v2/everything?q=${userTeamName}&pageSize=10&language=en`;
+
+    const options = {
+        headers: new Headers({
+            'X-Api-Key': newsapiKey
+        })
+    };
+
+    fetch(URL, options)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error (response.statusText);
+        })
+        .then(newsResponseJson => displayNews(newsResponseJson))
+        .catch(err => {
+            alert(`Something went wrong: ${err.message}`);
+        });
+    
+}
+
 function requestTeam(userTeam) {
 
     const URL = `https://api.football-data.org/v2/teams/${userTeam}`
@@ -72,6 +105,32 @@ function requestTeam(userTeam) {
         })
 }
 
+function getCurrentTeams() {
+    const URL = 'https://api.football-data.org/v2/competitions/2016/teams'
+
+    fetch(URL, fdOptions)
+        .then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => insertCurrentTeams(responseJson))
+        .catch(err => {
+            alert(`Something went wrong: ${err.message}`);
+        })
+}
+
+
+// EVENT LISTENERS
+
+function watchNewsButton() {
+    $('#news-button').on('click', function () {
+        const userTeamName = $('h1').text();
+        requestTeamNews(userTeamName);
+    })
+}
+
 function watchForm() {
 //listen for submit event, on submit - prevent default, define variable for selected team, call requestTeam function with parameter of selected team 
     $('.form').submit(e => {
@@ -82,5 +141,9 @@ function watchForm() {
         })
 }
 
+
+
+
+$(watchNewsButton);
 $(watchForm);
 $(getCurrentTeams);
