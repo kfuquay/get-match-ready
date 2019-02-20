@@ -77,12 +77,14 @@
     font-size: 22px;
     text-transform: uppercase;
 }
-/* NEWS PAGE */
-#news-list {
+
+#news-list,
+#stats {
     margin: 50px 10px;
 }
 
-#news-list li {
+#news-list li,
+#stats li {
     margin: 20px;
     padding: 20px;
     max-width:80vw;
@@ -98,4 +100,8 @@
     color: black;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+#stats li {
+    text-transform: uppercase;
 }

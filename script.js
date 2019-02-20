@@ -12,6 +12,32 @@ const fdOptions = {
 
 // DISPLAY THE THINGS!!!
 
+function displayStats(responseJson, userTeam) {
+
+    $('.js-container').empty();
+
+    for (let i=0; i < responseJson.standings[0].table.length; i++) {
+        if (userTeam == responseJson.standings[0].table[i].team.id) {
+            $('.js-container').append(`
+                <h2>STATS</h2>
+                
+                <ul id="stats">
+                    <li>League Position: ${responseJson.standings[0].table[i].position}</li>
+                    <li>Played Games: ${responseJson.standings[0].table[i].playedGames}</li>
+                    <li>Won Games: ${responseJson.standings[0].table[i].won}</li>
+                    <li>Drawn Games: ${responseJson.standings[0].table[i].draw} </li>
+                    <li>Lost Games: ${responseJson.standings[0].table[i].lost}</li>
+                    <li>Goals For: ${responseJson.standings[0].table[i].goalsFor}</li>
+                    <li>Goals Against: ${responseJson.standings[0].table[i].goalsAgainst}</li>
+                    <li>Goal Difference: ${responseJson.standings[0].table[i].goalDifference}</li>
+                </ul>
+                
+            `)
+
+        }
+    }
+}
+
 function displayNews(newsResponseJson) {
 
     $('.js-container').empty();
@@ -61,6 +87,23 @@ function insertCurrentTeams(responseJson) {
 
 
 // API CALLS
+
+function requestStats(userTeam) {
+    
+    const URL = `https://api.football-data.org/v2/competitions/2016/standings`
+
+    fetch(URL, fdOptions)
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error (response.statusText);
+    })
+    .then(responseJson => displayStats(responseJson, userTeam))
+    .catch(err => {
+        alert(`Something went wrong: ${err.message}`);
+    })
+}
 
 function requestTeamNews(userTeamName) {
 
@@ -124,6 +167,13 @@ function getCurrentTeams() {
 
 // EVENT LISTENERS
 
+function watchStatsButton() {
+    $('#stats-button').on('click', function () {
+        const userTeam = $('.js-select-team').val();
+        requestStats(userTeam);
+    })
+}
+
 function watchNewsButton() {
     $('#news-button').on('click', function () {
         const userTeamName = $('h1').text();
@@ -143,7 +193,7 @@ function watchForm() {
 
 
 
-
+$(watchStatsButton);
 $(watchNewsButton);
 $(watchForm);
 $(getCurrentTeams);
