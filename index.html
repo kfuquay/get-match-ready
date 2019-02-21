@@ -16,22 +16,22 @@
 <body>
     <main class="container">
 
-        <header role="banner" class="title">
+        <header class="title">
             <h1 class="home-title">Get Match Ready!</h1>
         </header>
 
-        <section>
-            <nav role="navigation" class="nav hidden">
-                <ul>
-                    <li><button type="button" class="nav-button" id="news-button">Team News</button></li>
-                    <li><button type="button" class="nav-button" id="stats-button">Team Stats</button></li>
-                    <li><button type="button" class="nav-button" id="match-button">Next Match</button></li>
-                </ul>
-            </nav>
-        </section>
+       
+        <nav class="nav hidden">
+            <ul>
+                <li><button type="button" class="nav-button" id="news-button">Team News</button></li>
+                <li><button type="button" class="nav-button" id="stats-button">Team Stats</button></li>
+                <li><button type="button" class="nav-button" id="match-button">Next Match</button></li>
+            </ul>
+        </nav>
+        
 
         <section class="intro-container">
-            <p class="intro">Know before you go!</p>
+            <h2 class="intro">Know before you go!</h2>
             <p class="intro">Bone up before you attend your next EFL Championship match.  Select a team to get relevant info.</p>
         </section>
 
@@ -41,7 +41,7 @@
 
         <form class="form">
             <select class="select-team js-select-team" required>
-                <option value="" selected="selected disabled">Select Team</option>
+                <option value="" selected="selected" disabled>Select Team</option>
             </select>
             <input type="Submit" value="Submit" class="submit-button">
         </form>

@@ -142,7 +142,6 @@ function insertCurrentTeams(responseJson) {
 
 
 // API CALLS
-
 function getMap(responseJson) {
 
     const lat = responseJson[0].lat;
