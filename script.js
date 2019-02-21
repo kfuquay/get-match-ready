@@ -12,7 +12,7 @@ const fdOptions = {
 
 // UTC DATE FORMATTER
 function dateFormatter(UTC) {
-    const dateFormat = 'YYYY-MM-DD / hh:mm a'
+    const dateFormat = 'YYYY-MM-DD / hh:mma'
 
     return (moment(UTC).format(dateFormat));
 }
@@ -37,12 +37,13 @@ function displayNextMatch(responseJson) {
             <h4 class="vs">VS.</h4>
             <h1 class="match-teams">${nextMatch[0].awayTeam.name}</h1>
         </section>
-
-        <section class="next-match-container">
-            <p class="next-match"><span>Matchday:</span> ${nextMatch[0].matchday}</p>
-            <p class="next-match"><span>Kickoff:</span> ${kickoff}</p>
+        <section class="box">
+            <div class="next-match-container">
+                <p class="next-match"><span>Matchday:</span> ${nextMatch[0].matchday}</p>
+                <p class="next-match"><span>Kickoff:</span> ${kickoff}</p>
+            </div>
+            <section id="map"></section>
         </section>
-        <section id="map"></section>
     `)
 
     getVenue(homeTeam);
@@ -50,7 +51,7 @@ function displayNextMatch(responseJson) {
 
 function displayNextMatchVenue(responseJson) {
     $('.next-match-container').append(`
-        <p class="next-match"><span>At:</span> ${responseJson.venue}</p>
+        <p class="next-match"><span>Stadium:</span> ${responseJson.venue}</p>
     `)
 }
 
@@ -61,8 +62,6 @@ function displayStats(responseJson, userTeam) {
     for (let i=0; i < responseJson.standings[0].table.length; i++) {
         if (userTeam == responseJson.standings[0].table[i].team.id) {
             $('.js-container').append(`
-                <h2>STATS</h2>
-                
                 <ul id="stats">
                     <li>League Position: ${responseJson.standings[0].table[i].position}</li>
                     <li>Played Games: ${responseJson.standings[0].table[i].playedGames}</li>
@@ -84,7 +83,6 @@ function displayNews(newsResponseJson) {
 
     $('.js-container').empty();
     $('.js-container').append(`
-            <h2>Recent News</h2>
             <ul id="news-list">
             </ul>
         `)
