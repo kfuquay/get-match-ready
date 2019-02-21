@@ -29,7 +29,7 @@ body {
     position: absolute !important;
     word-wrap:normal !important;
  }
- 
+
 .hidden {
     margin: 0 !important;
     padding: 0 !important;
@@ -234,7 +234,11 @@ body {
     .title {
         font-size: 40px;
     }
-    .next-match-container,
+
+    .crest {
+        margin: 130px auto;
+    }
+    
     #map {
         width: 350px;
     }
