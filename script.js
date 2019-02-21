@@ -31,9 +31,6 @@ function displayNextMatch(responseJson) {
 
     const homeTeam = nextMatch[0].homeTeam.id;
 
-    const venue = getVenue(homeTeam);
-    
-
     $('.js-container').append(`
         <section class="sub-header">
             <h1 class="match-teams">${nextMatch[0].homeTeam.name}</h1>
@@ -47,6 +44,8 @@ function displayNextMatch(responseJson) {
         </section>
         <section id="map"></section>
     `)
+
+    getVenue(homeTeam);
 }
 
 function displayNextMatchVenue(responseJson) {
@@ -145,18 +144,20 @@ function insertCurrentTeams(responseJson) {
 // API CALLS
 
 function getMap(responseJson) {
-    console.log(responseJson);
+
     const lat = responseJson[0].lat;
     const long = responseJson[0].lon;
-    console.log(lat, long);
+
     let map = L.map('map').setView([`${lat}`, `${long}`], 15);
+
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1Ijoia2Z1cXVheSIsImEiOiJjanNkdW8zMDYwYnlrNDRtZndqOW5oenh1In0.WFjTNvlgwzKZGibDz7ABZg'
 }).addTo(map);
-    let marker = L.marker([`${lat}`, `${long}`]).addTo(map);
+
+    L.marker([`${lat}`, `${long}`]).addTo(map);
 
 }
 
@@ -197,11 +198,6 @@ function getVenueLocation(responseJson) {
     .catch(err => {
         alert(`Something went wrong: ${err.message}`);
     })
-
-
-    // const venue = responseJson.address;
-    // const URL = `https://geocode.xyz/?locate=${venue}&json=1&auth=470546940471392631328x1840`;
-
 }
 
 function requestNextMatch(userTeam) {
