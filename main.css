@@ -22,6 +22,7 @@ body {
     font-size: 60px;
     font-weight: bold;
     max-width: 50%;
+    margin-left: 5px;
 }
 
 .intro-container {
@@ -44,6 +45,7 @@ body {
     text-shadow: 1px 1px 2px black;
     font-size: 30px;
     padding: 5px;
+    background-color: #fff;
 }
 
 .select-team {
@@ -86,6 +88,11 @@ body {
     text-transform: uppercase;
 }
 
+#news-list {
+    font-size:18px;
+    line-height: 22px;
+}
+
 #news-list,
 #stats {
     margin: 50px 10px;
@@ -95,7 +102,7 @@ body {
 #stats li {
     margin: 20px;
     padding: 20px;
-    max-width:80vw;
+    max-width:90vw;
     border-bottom: 1px solid goldenrod;
 }
 
@@ -114,11 +121,18 @@ body {
     text-transform: uppercase;
 }
 
+.sub-header {
+    background-color: #c2c2c2;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 15px;
+}
+
 .match-teams {
     font-size: 34px;
     text-transform: uppercase;
     text-align: center;
-    margin:10px;
+    margin:15px;
     max-width: 90vw;
 }
 
@@ -126,10 +140,11 @@ body {
     text-align: center;
     color: goldenrod;
     font-size: 24px;
+    margin: 15px;
 }
 
 .next-match {
-    margin: 50px auto;
+    margin: 50px 15px;
     text-transform: uppercase;
     font-size: 20px;
 }
@@ -194,7 +209,7 @@ body {
     #news-list,
     #stats,
     .next-match-container {
-        max-width: 40%;
+        max-width: 60%;
         margin: 100px auto;
     }
 
