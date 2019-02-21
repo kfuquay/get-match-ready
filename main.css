@@ -35,7 +35,7 @@ body {
     color: var(--dark);
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
-    font-size: 40px;
+    font-size: 36px;
     line-height: 44px;
     font-weight: bold;
     max-width: 70%;
@@ -219,10 +219,14 @@ body {
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 411px) {
+    .title {
+        font-size: 40px;
+    }
     .next-match-container,
     #map {
         width: 350px;
     }
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -234,12 +238,18 @@ body {
     }
 
     .crest {
-        max-height: 250px;
-        max-width: 250px;
+        max-height: 300px;
+        max-width: 300px;
+        margin: 150px auto;
     }
 
     .form {
         margin-top: 100px;
+    }
+    
+    .next-match-container {
+        width: 600px;
+        margin-bottom: 50px;
     }
 
     #map {
@@ -274,11 +284,7 @@ body {
     .crest {
         max-height: 500px;
         max-width: 500px;
-    }
-
-    .js-container h2 {
-        font-size: 30px;
-        text-align: center;
+        margin: 200px auto;
     }
 
     #news-list,
@@ -289,10 +295,35 @@ body {
         padding: 50px;
     }
 
+    #news-list {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    #news-list p {
+        margin: 35px 0;
+    }
+
     #stats li {
         padding: 20px 0 10px 0;
         font-size: 26px;
         font-weight: 100;
+    }
+
+    .box {
+        margin: 50px;
+    }
+
+    .next-match-container {
+        margin: 100px 50px;
+        padding: 0;
+        width: 600px;
+    }
+
+    
+    .next-match,
+    .next-match span {
+        font-size: 32px;
     }
 
     .match-teams {
@@ -302,6 +333,17 @@ body {
 
     .vs {
         font-size: 36px;
+    }
+
+    .select-team,
+    .submit-button {
+        font-size: 32px;
+    }
+
+    #map {
+        height: 600px;
+        width: 800px;
+        margin: 100px auto;
     }
 
 }
