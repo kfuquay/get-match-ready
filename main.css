@@ -1,11 +1,13 @@
 * {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    --light-blue: #456173;
-    --pop: #a6ed8e;
-    --dark-blue: #1b3c59;
-    --dark: #010101;
-    --white: #f2f2f0;
+    --light-blue: #8681B2;
+    --pop: #8EC85D;
+    --dark-blue: #BECCB3;
+    --dark: #29292A;
+    --darker: #1E1E1F;
+    --white: #FFFFF9;
+    
 }
 
 html,
@@ -39,7 +41,7 @@ body {
 
 .top {
     background-color: var(--white);
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--darker);
     padding: 20px 0 20px 0;
 }
 
@@ -60,7 +62,7 @@ body {
     max-width: 85%;
     margin: 100px auto;
     padding: 10px;
-    background-color: black;
+    background-color: var(--darker);
 }
 
 .intro {
@@ -77,16 +79,13 @@ body {
     font-weight: 100;
     font-size: 22px;
     padding: 5px;
-    margin: 20px auto;
-    border: 3px solid black;
+    margin: 50px auto;
+    border: 3px solid var(--darker);
     border-radius: 3px;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px 2px var(--darker);
     background-color: var(--white);
     color: var(--dark);
     width: 90vw;
-}
-
-.select-team {
     white-space: pre-wrap;
     -moz-appearance: none;
     text-indent: 0.01px;
@@ -146,7 +145,7 @@ body {
 #stats {
     margin: 50px 15px 50px 15px;
     padding: 10px 0;
-    background-color: black;
+    background-color: var(--darker);
     border-radius: 2px;
     box-shadow: 2px 2px 4px var(--grey);
 }
@@ -201,7 +200,7 @@ body {
 }
 
 .box {
-    background-color: black;
+    background-color: var(--darker);
     padding: 30px 0;
     margin: 0 15px;
 }
