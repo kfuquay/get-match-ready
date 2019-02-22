@@ -239,6 +239,9 @@ body {
         margin: 130px auto;
     }
     
+    .next-match-container {
+        margin: 20px;
+    }
     #map {
         width: 350px;
     }
@@ -264,8 +267,7 @@ body {
     }
     
     .next-match-container {
-        width: 600px;
-        margin-bottom: 50px;
+        margin: 0 0 50px 70px;
     }
 
     #map {
