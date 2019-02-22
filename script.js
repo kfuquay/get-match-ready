@@ -1,17 +1,6 @@
 "use strict";
 
 //GLOBAL VARIABLES
-
-//football-data.org API variables
-// const footyApiData = {
-//     key: 'a2d6e538e4b746ecafde70ea5964cdb0',
-//     headers: new Headers({
-//         "X-Auth-Token": 'a2d6e538e4b746ecafde70ea5964cdb0'
-//     })
-// }
-
-// const fdApiKey = "a2d6e538e4b746ecafde70ea5964cdb0";
-
 const fdOptions = {
   headers: new Headers({
     "X-Auth-Token": "a2d6e538e4b746ecafde70ea5964cdb0"
