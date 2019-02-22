@@ -103,6 +103,12 @@ body {
     margin: 50px auto;
 }
 
+.fa-futbol {
+    font-size: 150px;
+    display: block;
+    margin: 50px auto;
+}
+
 .nav li {
     display: inline;
 }
@@ -261,6 +267,11 @@ body {
         margin: 150px auto;
     }
 
+    .fa-futbol {
+        font-size: 300px;
+        margin: 120px auto;
+    }
+
     .form {
         margin-top: 100px;
     }
@@ -306,6 +317,11 @@ body {
         max-height: 500px;
         max-width: 500px;
         margin: 200px auto;
+    }
+
+    .fa-futbol {
+        font-size: 500px;
+        margin: 150px auto;
     }
 
     #news-list,

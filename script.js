@@ -126,6 +126,9 @@ function displayTeam(responseJson) {
               responseJson.crestUrl
             }">
         `);
+  } else {
+      $(".js-container").append(`
+      <i class="fas fa-futbol crest"></i>`)
   }
   //show team nav (news, stats, next match)
   $(".nav").removeClass("hidden");
