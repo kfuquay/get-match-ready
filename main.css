@@ -70,8 +70,7 @@ body {
     line-height: 26px;
 }
 
-.select-team,
-.submit-button {
+.select-team {
     display: block;
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
@@ -275,6 +274,11 @@ body {
         height: 400px;
         width: 600px;
     }
+
+    .select-team {
+        width: 40%;
+        direction: ltr;
+    }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -284,8 +288,7 @@ body {
         text-transform: uppercase;
     }
 
-    .select-team,
-    .submit-button {
+    .select-team {
         width: 70vw;
     }
 
@@ -354,9 +357,9 @@ body {
         font-size: 36px;
     }
 
-    .select-team,
-    .submit-button {
+    .select-team {
         font-size: 32px;
+        width: 40%;
     }
 
     #map {
