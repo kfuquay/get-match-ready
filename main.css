@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    --light-blue: #8681B2;
+    --light-color: #8681B2;
     --pop: #8EC85D;
     --dark-blue: #BECCB3;
     --dark: #29292A;
@@ -12,11 +12,11 @@
 
 html,
 body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
     background-color: var(--dark);
     color: var(--white);
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* INITIAL PAGE RENDERING */
@@ -26,88 +26,93 @@ body {
     clip-path: inset(50%);
     height: 1px;
     margin: -1px;
-    width: 1px;
     overflow: hidden;
     position: absolute !important;
+    width: 1px;
     word-wrap: normal !important;
 }
 
 .hidden {
+    height: 0;
     margin: 0 !important;
     padding: 0 !important;
     visibility: hidden;
-    height: 0;
 }
 
-.top {
+.header {
     background-color: var(--white);
     border-bottom: 1px solid var(--darker);
-    padding: 20px 0 20px 0;
+    padding: 20px 0;
 }
 
 .title {
     color: var(--dark);
     font-family: 'Lato', sans-serif;
-    text-transform: uppercase;
     font-size: 36px;
-    line-height: 44px;
     font-weight: bold;
+    line-height: 44px;
     max-width: 70%;
     margin-left: 5px;
     text-shadow: 1px 1px 2px var(--dark);
-
+    text-transform: uppercase;
 }
 
 .intro-container {
-    max-width: 85%;
-    margin: 50px auto;
-    padding: 10px;
     background-color: var(--darker);
     box-shadow: 2px 2px 4px var(--darker);
+    margin: 50px auto;
+    max-width: 85%;
+    padding: 10px;
 }
 
 .intro {
-    margin: 5px;
-    padding: 10px;
     font-size: 18px;
     line-height: 26px;
+    margin: 5px;
+    padding: 10px;
 }
 
 .select-team {
-    display: block;
-    font-family: 'Lato', sans-serif;
-    text-transform: uppercase;
-    font-weight: 100;
-    font-size: 22px;
-    padding: 10px;
-    margin: 50px auto;
+    background-color: var(--white);
     border: 3px solid var(--darker);
     border-radius: 3px;
-    text-shadow: 1px 1px 2px var(--darker);
     box-shadow: 2px 2px 4px var(--darker);
-    background-color: var(--white);
     color: var(--dark);
+    direction: rtl;
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    font-weight: 100;
+    margin: 50px auto;
     max-width: 85%;
-    white-space: pre-wrap;
-    -moz-appearance: none;
+    padding: 10px;
     text-indent: 0.01px;
     text-overflow: '';
+    text-shadow: 1px 1px 2px var(--darker);
+    text-transform: uppercase;
+    white-space: pre-wrap;
+    -moz-appearance: none;
     -webkit-appearance: button;
-    direction: rtl;
 }
 
 /* ON SUBMIT - TEAM CREST/NAV */
 .crest {
-    max-width: 150px;
-    max-height: 150px;
     display: block;
-    margin: 50px auto;
+    margin: 60px auto;
+    max-height: 150px;
+    max-width: 150px;
 }
 
 .fa-futbol {
-    font-size: 150px;
     display: block;
-    margin: 50px auto;
+    font-size: 150px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.nav {
+    margin: 20px 0;
+    padding: 5px;
     text-align: center;
 }
 
@@ -119,19 +124,14 @@ body {
     color: var(--pop);
 }
 
-.nav {
-    text-align: center;
-    padding: 5px;
-    margin-top: 70px;
-}
 
 .nav button {
-    text-transform: uppercase;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
     background-color: var(--dark);
+    border: none;
     color: var(--white);
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 
 .nav button:hover,
@@ -151,42 +151,43 @@ body {
 
 #news-list,
 #stats {
-    margin: 50px 15px;
-    padding: 10px 0;
     background-color: var(--darker);
     border-radius: 2px;
     box-shadow: 2px 2px 4px var(--grey);
+    margin: 50px 15px;
+    padding: 10px 0;
 }
 
 #news-list li,
 #stats li {
-    margin: 15px;
-    padding: 5px;
-    max-width: 90vw;
     border-bottom: 1px solid var(--pop);
+    margin: 15px;
+    max-width: 90vw;
+    padding: 5px;
 }
 
-#news-list li>* {
-    margin: 10px;
+#news-list p {
+    margin: 10px 0;
 }
 
 #news-list a {
+    color: var(--light-color);
     font-family: 'Rubik', sans-serif;
     text-decoration: none;
-    color: var(--light-blue);
     text-transform: uppercase;
+}
+
+#news-list h3 {
+    margin: 15px 0;
 }
 
 #stats li {
     text-transform: uppercase;
-    font-size: 22px;
+    font-size: 18px;
     padding-bottom: 10px;
 }
 
 .sub-header {
-    background-color: var(--grey);
-    border-top: 1px solid var(--dark);
-    border-bottom: 1px solid var(--dark);
     padding: 50px 0;
 }
 
@@ -209,17 +210,17 @@ body {
 
 .box {
     background-color: var(--darker);
-    padding: 30px 0;
     margin: 0 15px;
+    padding: 10px;
 }
 
 .next-match-container {
     width: 280px;
-    margin: 50px auto 0 auto;
+    margin: 20px auto;
 }
 
 .next-match {
-    margin: 50px 15px;
+    margin: 15px;
     padding: 5px;
     text-transform: uppercase;
     font-size: 20px;
@@ -227,31 +228,47 @@ body {
 
 .next-match span {
     font-size: 22px;
-    color: var(--light-blue);
+    color: var(--light-color);
 }
 
 #map {
     height: 200px;
-    width: 280px;
-    margin: 50px auto;
+    width: 250px;
+    margin: 30px auto;
 }
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 411px) {
     .title {
         font-size: 40px;
+        line-height: 46px;
+        max-width: 90%;
     }
 
     .intro-container {
-        margin: 80px auto;
+        margin: 100px auto;
     }
 
     .select-team {
         width: 300px;
+        direction: ltr;
     }
 
     .crest {
-        margin: 130px auto;
+        max-width: 280px;
+        max-height: 280px;
+    }
+
+    .fa-futbol {
+        font-size: 280px;
+    }
+
+    #news-list h3 {
+        font-size: 20px;
+    }
+
+    #news-list p {
+        font-size: 16px;
     }
 
     .next-match-container {
@@ -260,15 +277,16 @@ body {
 
     #map {
         width: 350px;
+        height: 275px;
     }
 
 }
 
 @media only screen and (min-width: 768px) {
     .title {
-        font-size: 80px;
-        line-height: 90px;
-        margin: 30px;
+        font-size: 50px;
+        line-height: 55px;
+        margin: 20px;
         max-width: 90%;
     }
 
@@ -278,11 +296,16 @@ body {
         flex-direction: column;
         width: 500px;
         padding: 50px;
+        margin: 150px;
     }
 
     .intro {
         font-size: 24px;
         line-height: 28px;
+    }
+
+    .select-team {
+        margin-bottom: 100px;
     }
 
     .crest {
@@ -296,64 +319,53 @@ body {
         margin: 120px auto;
     }
 
-    .form {
-        margin-top: 100px;
-    }
-
-    .next-match-container {
-        margin: 0 0 50px 70px;
+    .sub-header {
+        padding: 50px 0 0 0;
     }
 
     #news-list,
     #stats,
-    .next-match-container {
-        margin: 100px 80px;
+    .box {
+        margin: 80px;
         padding: 50px;
     }
 
-    #news-list {
-        font-size: 26px;
-        line-height: 32px;
-        font-weight: 100;
+    .next-match-container {
+        margin: 0 0 50px 0;
+        width: 100%;
     }
 
-    #news-list a {
-        font-size: 30px;
-    }
-
-    #news-list p {
-        margin: 35px 0;
+    .next-match {
+        margin: 20px 0;
     }
 
     #stats li {
-        padding: 20px 0 10px 0;
-        font-size: 26px;
+        padding: 20px 0;
+        font-size: 20px;
         font-weight: 100;
     }
 
     #map {
         height: 400px;
-        width: 600px;
+        width: 500px;
     }
 
 }
 
 @media only screen and (min-width: 992px) {
     .title {
-        font-size: 100px;
         max-width: 80%;
         text-transform: uppercase;
     }
 
     .intro-container {
-        margin: 200px auto;
+        margin: 100px auto;
         box-shadow: 4px 4px 6px var(--darker);
     }
 
     .select-team {
         font-size: 32px;
         width: 40%;
-        margin-right: 250px;
         box-shadow: 4px 4px 6px var(--darker);
     }
 
@@ -384,72 +396,67 @@ body {
     }
 
     .next-match-container {
-        margin: 100px 50px;
+        margin: 30px 0;
         padding: 0;
-        width: 600px;
-    }
-
-
-    .next-match,
-    .next-match span {
-        font-size: 32px;
     }
 
     .match-teams {
-        font-size: 70px;
-        margin: 50px;
+        margin: 0 auto;
     }
-
-    .vs {
-        font-size: 36px;
-    }
-
 
     #map {
         height: 600px;
         width: 800px;
-        margin: 100px auto;
+        margin: 50px auto;
     }
 
 }
 
 @media only screen and (min-width: 1200px) {
     .select-team {
-        margin-right: 200px;
         width: 500px;
-        direction: ltr;
+    }
+
+    .title {
+        font-size: 60px;
+        line-height: 64px;
+        margin: 20px;
+    }
+
+    .nav {
+        margin-top: 30px;
     }
 
     .intro-container {
-        margin: 50px 200px 100px auto;
+        margin: 100px auto;
         width: 1000px;
     }
 
-    .box {
-        display: flex;
-        padding: 0;
+    .crest {
+        max-width: 250px;
+        max-height: 250px;
+        margin: 100px auto;
+    }
+
+    .fa-futbol {
+        font-size: 250px;
+        margin: 100px auto;
     }
 
     .next-match-container {
-        flex-basis: 400px;
-        padding: 0;
-        margin: 100 auto;
+        text-align: center;
     }
 
     #news-list,
     #stats {
-        display: grid;
-        grid-template-columns: repeat(2, 500px);
-        grid-gap: 30px;
-    }
-
-    #news-list a {
-        font-size: 26px;
-    }
-
-    #news-list,
-    #stats li {
         font-size: 20px;
-        line-height: 22px;
+        line-height: 24px;
+        width: 800px;
     }
+
+    #news-list h3 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
 }
