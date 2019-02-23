@@ -127,8 +127,8 @@ function displayTeam(responseJson) {
             }">
         `);
   } else {
-      $(".js-container").append(`
-      <i class="fas fa-futbol crest"></i>`)
+    $(".js-container").append(`
+      <i class="fas fa-futbol"></i>`);
   }
   //show team nav (news, stats, next match)
   $(".nav").removeClass("hidden");
