@@ -114,13 +114,13 @@ function displayNews(newsResponseJson) {
 
 function displayTeam(responseJson) {
   //empty header and js populated section
-  $(".title").empty();
+//   $(".title").empty();
   $(".intro-container").addClass("hidden");
   $(".js-container").empty();
   //insert new h1(team name) into header
-  $(".title").append(`
-        <h1>${responseJson.name}</h1>
-    `);
+//   $(".title").append(`
+//         <h1>${responseJson.name}</h1>
+//     `);
   //check to see if crest url key is valid, if so insert crest into DOM section
   if (responseJson.crestUrl !== null) {
     $(".js-container").append(`
