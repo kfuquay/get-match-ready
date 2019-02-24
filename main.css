@@ -48,18 +48,15 @@ body {
 .title {
     color: var(--dark);
     font-family: 'Lato', sans-serif;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: bold;
-    line-height: 44px;
-    max-width: 70%;
+    line-height: 32px;
     margin-left: 5px;
     text-shadow: 1px 1px 2px var(--dark);
     text-transform: uppercase;
 }
 
 .intro-container {
-    background-color: var(--darker);
-    box-shadow: 2px 2px 4px var(--darker);
     margin: 50px auto;
     max-width: 85%;
     padding: 10px;
@@ -73,17 +70,16 @@ body {
 }
 
 .select-team {
-    background-color: var(--white);
-    border: 3px solid var(--darker);
+    background-color: var(--dark);
+    border: 2px solid var(--dark-blue);
     border-radius: 3px;
-    box-shadow: 2px 2px 4px var(--darker);
-    color: var(--dark);
-    direction: rtl;
+    box-shadow: 1px 1px 2px var(--dark-blue);
+    color: var(--dark-blue);
     display: block;
     font-family: 'Lato', sans-serif;
     font-size: 22px;
     font-weight: 100;
-    margin: 50px auto;
+    margin: 20px auto;
     max-width: 85%;
     padding: 10px;
     text-indent: 0.01px;
@@ -111,7 +107,7 @@ body {
 }
 
 .nav {
-    margin: 20px 0;
+    margin: 10px 0;
     padding: 5px;
     text-align: center;
 }
@@ -144,6 +140,7 @@ body {
 }
 
 /* JS-CONTAINER */
+
 #news-list {
     font-size: 18px;
     line-height: 22px;
@@ -151,10 +148,9 @@ body {
 
 #news-list,
 #stats {
-    background-color: var(--darker);
     border-radius: 2px;
     box-shadow: 2px 2px 4px var(--grey);
-    margin: 50px 15px;
+    margin: 20px 15px;
     padding: 10px 0;
 }
 
@@ -187,11 +183,13 @@ body {
     padding-bottom: 10px;
 }
 
-.sub-header {
-    padding: 50px 0;
+.sub-header,
+.js-container h2 {
+    padding: 30px 0;
 }
 
-.match-teams {
+.match-teams,
+.js-container h2 {
     font-size: 34px;
     text-transform: uppercase;
     text-align: center;
@@ -209,18 +207,12 @@ body {
 }
 
 .box {
-    background-color: var(--darker);
-    margin: 0 15px;
+    margin: 0 15px 50px 15px;
     padding: 10px;
 }
 
-.next-match-container {
-    width: 280px;
-    margin: 20px auto;
-}
-
 .next-match {
-    margin: 15px;
+    margin: 15px 0;
     padding: 5px;
     text-transform: uppercase;
     font-size: 20px;
@@ -233,17 +225,16 @@ body {
 
 #map {
     height: 200px;
-    width: 250px;
+    width: 100%;
     margin: 30px auto;
 }
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 411px) {
-    .title {
+    /* .title {
         font-size: 40px;
         line-height: 46px;
-        max-width: 90%;
-    }
+    } */
 
     .intro-container {
         margin: 100px auto;
@@ -257,10 +248,12 @@ body {
     .crest {
         max-width: 280px;
         max-height: 280px;
+        margin-top: 100px;
     }
 
     .fa-futbol {
-        font-size: 280px;
+        font-size: 270px;
+        margin-top: 100px;
     }
 
     #news-list h3 {
@@ -271,10 +264,6 @@ body {
         font-size: 16px;
     }
 
-    .next-match-container {
-        margin: 20px;
-    }
-
     #map {
         width: 350px;
         height: 275px;
@@ -283,11 +272,16 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
-    .title {
+    /* .title {
         font-size: 50px;
         line-height: 55px;
         margin: 20px;
-        max-width: 90%;
+    } */
+
+    .select-team {
+        font-size: 32px;
+        width: 100%;
+        margin: 30px;
     }
 
     .intro-container {
@@ -302,10 +296,6 @@ body {
     .intro {
         font-size: 24px;
         line-height: 28px;
-    }
-
-    .select-team {
-        margin-bottom: 100px;
     }
 
     .crest {
@@ -326,7 +316,7 @@ body {
     #news-list,
     #stats,
     .box {
-        margin: 80px;
+        margin: 20px 80px;
         padding: 50px;
     }
 
@@ -353,20 +343,9 @@ body {
 }
 
 @media only screen and (min-width: 992px) {
-    .title {
-        max-width: 80%;
-        text-transform: uppercase;
-    }
 
     .intro-container {
         margin: 100px auto;
-        box-shadow: 4px 4px 6px var(--darker);
-    }
-
-    .select-team {
-        font-size: 32px;
-        width: 40%;
-        box-shadow: 4px 4px 6px var(--darker);
     }
 
     .nav {
@@ -388,7 +367,7 @@ body {
     #news-list,
     #stats {
         width: 80%;
-        margin: 100px auto;
+        margin: 0 auto;
     }
 
     .box {
@@ -413,9 +392,7 @@ body {
 }
 
 @media only screen and (min-width: 1200px) {
-    .select-team {
-        width: 500px;
-    }
+    
 
     .title {
         font-size: 60px;
@@ -435,7 +412,7 @@ body {
     .crest {
         max-width: 250px;
         max-height: 250px;
-        margin: 100px auto;
+        margin: 150px auto;
     }
 
     .fa-futbol {
@@ -445,6 +422,7 @@ body {
 
     .next-match-container {
         text-align: center;
+        margin-bottom: 100px;
     }
 
     #news-list,

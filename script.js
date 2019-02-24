@@ -59,6 +59,7 @@ function displayStats(responseJson, userTeam) {
   for (let i = 0; i < responseJson.standings[0].table.length; i++) {
     if (userTeam == responseJson.standings[0].table[i].team.id) {
       $(".js-container").append(`
+                <h2>Stats</h2>
                 <ul id="stats">
                     <li>League Position: ${
                       responseJson.standings[0].table[i].position
@@ -94,6 +95,7 @@ function displayStats(responseJson, userTeam) {
 function displayNews(newsResponseJson) {
   $(".js-container").empty();
   $(".js-container").append(`
+            <h2>News</h2>
             <ul id="news-list">
             </ul>
         `);
@@ -335,6 +337,7 @@ function watchNewsButton() {
 function watchForm() {
   $(".js-select-team").change(function() {
     const userTeam = $(".js-select-team").val();
+    $('.header').addClass('hidden');
     requestTeam(userTeam);
   });
 }
