@@ -113,15 +113,9 @@ function displayNews(newsResponseJson) {
 }
 
 function displayTeam(responseJson) {
-  //empty header and js populated section
-//   $(".title").empty();
   $(".intro-container").addClass("hidden");
   $(".js-container").empty();
-  //insert new h1(team name) into header
-//   $(".title").append(`
-//         <h1>${responseJson.name}</h1>
-//     `);
-  //check to see if crest url key is valid, if so insert crest into DOM section
+  
   if (responseJson.crestUrl !== null) {
     $(".js-container").append(`
             <img class="crest" alt="selected team's crest" src="${
@@ -337,7 +331,7 @@ function watchNewsButton() {
 function watchForm() {
   $(".js-select-team").change(function() {
     const userTeam = $(".js-select-team").val();
-    $('.header').addClass('hidden');
+    // $('.header').addClass('hidden');
     requestTeam(userTeam);
   });
 }

@@ -32,6 +32,19 @@ body {
     word-wrap: normal !important;
 }
 
+.intro-container {
+    margin: 50px auto;
+    max-width: 85%;
+    padding: 10px;
+}
+
+.intro {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 5px;
+    padding: 10px;
+}
+
 .hidden {
     height: 0;
     margin: 0 !important;
@@ -56,18 +69,6 @@ body {
     text-transform: uppercase;
 }
 
-.intro-container {
-    margin: 50px auto;
-    max-width: 85%;
-    padding: 10px;
-}
-
-.intro {
-    font-size: 18px;
-    line-height: 26px;
-    margin: 5px;
-    padding: 10px;
-}
 
 .select-team {
     background-color: var(--dark);
@@ -231,10 +232,10 @@ body {
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 411px) {
-    /* .title {
+    .title {
         font-size: 40px;
         line-height: 46px;
-    } */
+    }
 
     .intro-container {
         margin: 100px auto;
@@ -272,16 +273,20 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
-    /* .title {
+    .title {
         font-size: 50px;
         line-height: 55px;
-        margin: 20px;
-    } */
+        margin: 32px;
+    }
 
     .select-team {
         font-size: 32px;
-        width: 100%;
+        width: auto;
         margin: 30px;
+    }
+
+    .nav ul {
+        margin-left: 30px;
     }
 
     .intro-container {
@@ -350,7 +355,6 @@ body {
 
     .nav {
         text-align: left;
-        margin-left: 30px;
     }
 
     .crest {
