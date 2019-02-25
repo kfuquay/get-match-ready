@@ -115,7 +115,7 @@ function displayTeam(responseJson) {
   $(".intro-container").addClass("hidden");
   $(".js-container").empty();
   
-  if (responseJson.crestUrl !== null) {
+  if (responseJson.crestUrl !== null && responseJson.tla !== 'BRI' && responseJson.tla !== 'WBA' && responseJson.tla !== 'HUL') {
     $(".js-container").append(`
             <img class="crest" alt="selected team's crest" src="${
               responseJson.crestUrl

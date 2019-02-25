@@ -32,19 +32,6 @@ body {
     word-wrap: normal !important;
 }
 
-.intro-container {
-    margin: 50px auto;
-    max-width: 85%;
-    padding: 10px;
-}
-
-.intro {
-    font-size: 18px;
-    line-height: 26px;
-    margin: 5px;
-    padding: 10px;
-}
-
 .hidden {
     height: 0;
     margin: 0 !important;
@@ -58,6 +45,10 @@ body {
     padding: 20px 0;
 }
 
+.home-link {
+    text-decoration: none;
+}
+
 .title {
     color: var(--dark);
     font-family: 'Lato', sans-serif;
@@ -69,6 +60,18 @@ body {
     text-transform: uppercase;
 }
 
+.intro-container {
+    margin: 50px auto;
+    max-width: 85%;
+    padding: 10px;
+}
+
+.intro {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 5px;
+    padding: 10px;
+}
 
 .select-team {
     background-color: var(--dark);
@@ -92,21 +95,7 @@ body {
     -webkit-appearance: button;
 }
 
-/* ON SUBMIT - TEAM CREST/NAV */
-.crest {
-    display: block;
-    margin: 60px auto;
-    max-height: 150px;
-    max-width: 150px;
-}
-
-.fa-futbol {
-    display: block;
-    font-size: 150px;
-    margin: 60px auto;
-    text-align: center;
-}
-
+/* NAVIGATION */
 .nav {
     margin: 10px 0;
     padding: 5px;
@@ -144,8 +133,22 @@ body {
     padding-left: 0;
 }
 
-/* JS-CONTAINER */
+/* ON SUBMIT - TEAM CREST */
+.crest {
+    display: block;
+    margin: 60px auto;
+    max-height: 150px;
+    max-width: 150px;
+}
 
+.fa-futbol {
+    display: block;
+    font-size: 150px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+/* NEWS/STATS/NEXT MATCH */
 #news-list {
     font-size: 18px;
     line-height: 22px;
@@ -240,13 +243,13 @@ body {
         font-size: 40px;
         line-height: 46px;
     }
+    
+    .select-team {
+        width: 300px;
+    }
 
     .intro-container {
         margin: 100px auto;
-    }
-
-    .select-team {
-        width: 300px;
     }
 
     .crest {
@@ -285,8 +288,6 @@ body {
         width: auto;
         margin: 30px auto 10px auto;
     }
-
-   
 
     .intro-container {
         display: flex;
@@ -355,6 +356,7 @@ body {
     .select-team {
         margin: 30px 0 10px 30px;
     }
+    
     .nav {
         text-align: left;
     }
@@ -411,7 +413,7 @@ body {
 
     .select-team {
         font-size: 20px;
-        margin: 30px 0 0 30px;
+        margin: 20px 0 0 30px;
     }
 
     .nav {
