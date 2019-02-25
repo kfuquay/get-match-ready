@@ -140,6 +140,10 @@ body {
     outline: none;
 }
 
+#news-button {
+    padding-left: 0;
+}
+
 /* JS-CONTAINER */
 
 #news-list {
@@ -243,7 +247,6 @@ body {
 
     .select-team {
         width: 300px;
-        direction: ltr;
     }
 
     .crest {
@@ -276,18 +279,14 @@ body {
     .title {
         font-size: 50px;
         line-height: 55px;
-        margin: 32px;
     }
 
     .select-team {
-        font-size: 32px;
         width: auto;
-        margin: 30px;
+        margin: 30px auto 10px auto;
     }
 
-    .nav ul {
-        margin-left: 30px;
-    }
+   
 
     .intro-container {
         display: flex;
@@ -353,8 +352,15 @@ body {
         margin: 100px auto;
     }
 
+    .select-team {
+        margin: 30px 0 10px 30px;
+    }
     .nav {
         text-align: left;
+    }
+
+    .nav ul {
+        margin-left: 30px;
     }
 
     .crest {
@@ -390,7 +396,7 @@ body {
     #map {
         height: 600px;
         width: 800px;
-        margin: 50px auto;
+        margin: 50px;
     }
 
 }
@@ -398,34 +404,52 @@ body {
 @media only screen and (min-width: 1200px) {
 
     .title {
-        font-size: 60px;
-        line-height: 64px;
-        margin: 20px;
+        font-size: 40px;
+        line-height: 42px;
+        margin: 5px 30px;
+    }
+
+    .select-team {
+        font-size: 20px;
+        margin: 30px 0 0 30px;
     }
 
     .nav {
-        margin-top: 30px;
+        font-size: 16px;
     }
-
+    
     .intro-container {
         margin: 100px auto;
-        width: 1000px;
+        width: 700px;
     }
 
     .crest {
         max-width: 250px;
         max-height: 250px;
-        margin: 150px auto;
+        margin: 155px auto;
     }
 
     .fa-futbol {
         font-size: 250px;
-        margin: 100px auto;
+        margin: 155px auto;
+    }
+
+    .box {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 10px;
+        align-items: center;
+        justify-items: center;
     }
 
     .next-match-container {
-        text-align: center;
-        margin-bottom: 100px;
+        width: 350px;
+        align-self: start;
+    }
+
+    #map {
+        width: 600px;
+        height: 400px;
     }
 
     #news-list,

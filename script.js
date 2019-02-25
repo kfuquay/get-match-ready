@@ -14,8 +14,7 @@ function dateFormatter(UTC) {
   return moment(UTC).format(dateFormat);
 }
 
-// DISPLAY THE THINGS!!!
-
+// RENDER/DISPLAY
 function displayNextMatch(responseJson) {
   const nextMatch = jQuery.grep(responseJson.matches, function(item) {
     return item.status === "SCHEDULED";
