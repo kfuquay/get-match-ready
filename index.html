@@ -1,65 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Get Match Ready | Pick your favourite EFL Championship team to get news, stats and more">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Get Match Ready | Pick your favourite EFL Championship team to get news, stats and more"
+    />
     <meta name="theme-color" content="#8EC85D" />
     <title>Are You Match Ready?</title>
-    <link rel="icon" href="match-ready-favicon/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="match-ready-favicon/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-        crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Lato" rel="stylesheet">
-    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin="" />
-    <link rel="stylesheet" href="main.css">
-</head>
+    <link
+      rel="icon"
+      href="match-ready-favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="match-ready-favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto|Lato"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://meyerweb.com/eric/tools/css/reset/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
 
-<body>
+  <body>
     <main class="container">
+      <header class="header">
+        <a href="index.html" class="home-link"
+          ><h1 class="title">Get Match Ready</h1></a
+        >
+      </header>
 
-        <header class="header">
-            <a href="index.html" class="home-link"><h1 class="title">Get Match Ready</h1></a>
-        </header>
+      <form class="form">
+        <fieldset>
+          <label for="select-team"
+            ><span class="screen-reader-text">Select Team:</span></label
+          >
+          <select name="select-team" class="select-team js-select-team">
+            <option value="" selected="selected" disabled>Select Team</option>
+          </select>
+        </fieldset>
+      </form>
 
-        <form class="form">
-            <label for="select-team"><span class="screen-reader-text">Select Team:</span></label>
-            <select name="select-team" class="select-team js-select-team">
-                <option value="" selected="selected" disabled>Select Team</option>
-            </select>
-        </form>
+      <nav class="nav hidden">
+        <ul>
+          <li>
+            <button type="button" class="nav-button" id="news-button">
+              Team News</button
+            ><span> /</span>
+          </li>
+          <li>
+            <button type="button" class="nav-button" id="stats-button">
+              Team Stats</button
+            ><span> /</span>
+          </li>
+          <li>
+            <button type="button" class="nav-button" id="match-button">
+              Next Match</button
+            ><span></span>
+          </li>
+        </ul>
+      </nav>
 
-        <nav class="nav hidden">
-            <ul>
-                <li><button type="button" class="nav-button" id="news-button">Team News</button><span> /</span></li>
-                <li><button type="button" class="nav-button" id="stats-button">Team Stats</button><span> /</span></li>
-                <li><button type="button" class="nav-button" id="match-button">Next Match</button><span></span></li>
-            </ul>
-        </nav>
-
-
-        <section class="intro-container">
+      <section class="intro-container">
+        <section class="intro-image-container">
+          <i class="fas fa-trophy"></i>
+        </section>
+        <section class="intro-text-container">
+          <div class="text-wrapper">
             <h2 class="intro">Know before you go!</h2>
-            <p class="intro">Get ready to attend your next EFL Championship match. Select a team to get relevant info.</p>
+            <p class="intro">
+              Get ready to attend your next EFL Championship match. Select a
+              team to get relevant info.
+            </p>
+          </div>
         </section>
+      </section>
 
-        <section class="js-container" aria-live="polite">
-        </section>
-
-
-
+      <section class="js-container" aria-live="polite"></section>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-        crossorigin=""></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
